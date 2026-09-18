@@ -2,11 +2,11 @@
 
 ## Purpose
 
-This staging tree is limited to general, public-safe research documentation and data-free engineering support. Its boundary is intentionally conservative so that inclusion in version control does not imply authorization to release research materials.
+This public repository contains data-free engineering support and a concise qualitative account of two completed, separate observational analyses. The status record states their bounded supportive and non-supportive outcomes without exposing research artifacts, numerical outputs, or source-specific operational details.
 
 ## Permitted material
 
-Permitted material includes a high-level project description, conceptual methods scope, contribution guidance, ignore rules, a read-only boundary scanner, and synthetic tests. Such material must avoid empirical statements, numerical outcomes, source-specific descriptions, personal contact information, and publication-oriented language.
+Permitted material includes a high-level project description, qualitative outcome statements with explicit limitations, conceptual methods scope, contribution guidance, ignore rules, a read-only boundary scanner, and synthetic tests. Outcome statements must avoid numerical values, source identifiers, access records, and causal, mechanistic, or cross-system interpretation.
 
 ## Excluded material
 
@@ -22,4 +22,4 @@ Run it from a Git working tree:
 python3 tools/release_boundary_scan.py
 ```
 
-A nonzero exit status identifies paths or text requiring review. Review changes manually as well, especially documentation changes that could introduce claims not recognized by simple patterns.
+A nonzero exit status identifies paths or text requiring review. Review changes manually as well, especially documentation changes that could introduce numerical results, source-specific records, or claims beyond the documented observational inference.
