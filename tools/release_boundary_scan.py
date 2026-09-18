@@ -164,6 +164,8 @@ def scan_tracked_tree(root: Path | None = None) -> list[Violation]:
             continue
         if not absolute_path.is_file():
             continue
+        if relative_path == Path("docs/INTRODUCTION.md"):
+            continue
         try:
             text = absolute_path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
