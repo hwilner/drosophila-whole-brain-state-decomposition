@@ -24,6 +24,8 @@ This independent research repository records two completed, separate observation
 
 ## Validation
 
+Any nonzero scanner exit requires review. Exit status 1 reports tracked paths or text that need attention; status 2 means Git could not provide the tracked-file list, so rerun the check from a Git checkout. The scanner is a safeguard, not a replacement for manual owner review.
+
 ```bash
 python -m unittest discover -s tests -v
 python tools/release_boundary_scan.py
