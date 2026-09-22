@@ -23,6 +23,12 @@ class RestrictedPickleReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(pickle.UnpicklingError, "Blocked pickle global"):
             RestrictedUnpickler(io.BytesIO(unsafe_payload)).load()
 
+    def test_rejects_builtins_global(self) -> None:
+        """A synthetic builtins global is rejected and never invoked."""
+        payload = b"cbuiltins\nlen\n."
+        with self.assertRaisesRegex(pickle.UnpicklingError, "Blocked pickle global"):
+            RestrictedUnpickler(io.BytesIO(payload)).load()
+
 
 if __name__ == "__main__":
     unittest.main()
