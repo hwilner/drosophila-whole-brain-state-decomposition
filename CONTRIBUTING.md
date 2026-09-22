@@ -8,7 +8,7 @@ Suitable changes improve conceptual documentation, release-boundary safeguards, 
 
 ## Material that must remain out of tree
 
-Do not add recordings, tabular measurements, images, videos, notebooks, downloaded materials, third-party source files, metadata captured from external resources, access records, derived artifacts, figure specifications, or outcome-bearing documentation. Do not add an empirical claim, numerical finding, source-specific statement, citation, contact detail, or publication-oriented assertion.
+Do not add recordings, tabular measurements, images, videos, notebooks, downloaded materials, third-party source files, metadata captured from external resources, access records, derived artifacts, figure specifications, or outcome-bearing documentation. Do not add an empirical claim, numerical finding, source-specific statement, citation, contact detail, or assertion beyond the documented repository scope.
 
 ## Code and tests
 
