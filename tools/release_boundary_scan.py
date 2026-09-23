@@ -170,7 +170,13 @@ def scan_tracked_tree(root: Path | None = None) -> list[Violation]:
             text = absolute_path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
             continue
-        for label, pattern in _TEXT_RULES:
+        rules = _TEXT_RULES
+        if relative_path == Path("docs/EXTENDED_INTRODUCTION.md"):
+            # Owner-approved exemption: docs/EXTENDED_INTRODUCTION.md is exempt
+            # from the network-address (URL) rule only; all other text rules
+            # still apply to this file.
+            rules = tuple(rule for rule in _TEXT_RULES if rule[0] != "network address")
+        for label, pattern in rules:
             if pattern.search(text):
                 violations.append(Violation(relative_path, f"tracked text contains {label}"))
     return violations
