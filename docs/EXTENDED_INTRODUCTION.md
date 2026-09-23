@@ -245,6 +245,23 @@ Start with the README's research-status table, then the [Introduction](INTRODUCT
 
 All literature pointers above refer to the numbered, verified reference list in [INTRODUCTION.md](INTRODUCTION.md), which is the repository's single citable source list. The entries used here are [2] and [3] (brain-wide recording in behaving flies), [4] (dimensionality reduction for large-scale recordings), [5] (the distinction between prediction and explanation), [6] (whole-brain mapping of locomotion-related activity), [7] (imaging with the fly walking on a ball), [11] (the bias from tuning outside the validation loop), [12] (brain-state change during walking), [13] (brain-wide activity and internal state), and [15] (distinct safeguards for description, prediction, association, and causal inference). Per the release boundary, this document contains no external addresses or identifier links. No citations beyond that list are made in this document.
 
+## Learn more (verified links)
+
+Every link below was fetched and verified at the time of writing.
+
+**Whole-brain recording**
+- [Calcium imaging](https://en.wikipedia.org/wiki/Calcium_imaging) — explains the fluorescent technique that makes neurons light up when active, the stadium-camera recording behind the brain-wide movies of section 1.
+
+**Dimensionality reduction and PCA**
+- [Principal component analysis](https://en.wikipedia.org/wiki/Principal_component_analysis) — presents PCA as finding directions of maximal variation, the rigorous version of the six-number compression worked by hand in section 3.
+
+**Encoding models and held-out evaluation**
+- [Cross-validation (statistics)](https://en.wikipedia.org/wiki/Cross-validation_(statistics)) — describes fitting on one subset and scoring on a disjoint one, the honesty safeguard at the center of section 4.
+- [Overfitting](https://en.wikipedia.org/wiki/Overfitting) — explains how models memorize noise and why held-out data catches it, the "studied the exam" failure mode this project's bounded claims guard against.
+
+**Time-series autocorrelation**
+- [Autocorrelation](https://en.wikipedia.org/wiki/Autocorrelation) — defines neighbor-similarity in time series and how it is measured, the trap that forces time-respecting splits and shuffles in section 5.
+
 ## Choosing your road
 
 If you think in pictures, take **geometry** — decomposition is shadow-casting and a lost detail is what falls outside the shadow. If you think in tables, take **linear algebra as weight tables** — every component and every encoding model is a row of mixing proportions. If you think in membership and disjointness, take **set theory** — a state is a subset, and honest evaluation is an empty intersection. If you think in states and transitions, take **automata** — a brain state is a row in a transition table. If you think in step-by-step rules, take **discrete iterated maps** — autocorrelation is the rule "tomorrow ≈ today" iterated. If you think in tallies and reachable worlds, take **statistical mechanics by counting** and **probability as frequencies** — effective sample size and leakage skew are both recounts. If you think in questions and answers, take **information theory** — compression and state labels are worth exactly the questions they save. If you think in incentives, take **game theory** — overfitting is a player who studied the exam, and held-out evaluation is the rule that catches it.
