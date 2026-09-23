@@ -10,6 +10,10 @@ Suitable changes improve conceptual documentation, release-boundary safeguards, 
 
 Do not add recordings, tabular measurements, images, videos, notebooks, downloaded materials, third-party source files, metadata captured from external resources, access records, derived artifacts, figure specifications, or outcome-bearing documentation. Do not add an empirical claim, numerical finding, source-specific statement, citation, contact detail, or assertion beyond the documented repository scope.
 
+## Project task workflow
+
+Each atomic task is tracked by a GitHub issue and its matching Project card. When a pull request fully addresses one of those tasks, include `Fixes #<issue-number>`, `Closes #<issue-number>`, or `Resolves #<issue-number>` in the pull-request description. Use a closing keyword only for work that is genuinely complete; use ordinary discussion or a non-closing reference for proposals and partial work. This link gives reviewers a visible relationship between the change and its task, and supports the documented Project-status automation when it is enabled.
+
 ## Code and tests
 
 New public callables should use Google-style docstrings that state their summary, arguments, return value, and raised exceptions where applicable. Use concise comments only where they clarify a non-obvious decision. Tests must be synthetic and data-free, must not rely on external access, and must not write to repository data, result, figure, download, archive, or output paths.
