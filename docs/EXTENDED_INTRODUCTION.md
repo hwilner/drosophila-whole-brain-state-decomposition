@@ -230,7 +230,7 @@ where the count tallies edges with one end in training and the other in test —
 **Road 3: statistical mechanics by counting.** Independence assumptions fail because the number of effectively different observations is smaller than the count of rows. If every value is 0.9-determined by its predecessor, then 100 rows contain the information of far fewer free draws — loosely, the multiplicity of "distinct worlds" consistent with the series is much smaller than 100 rows suggests. Worked toy count: with a rule "each row = previous row or previous ± 1," a 4-row series starting at 0 has only 3×3×3 = 27 reachable sequences, not the unlimited variety 4 free rows would allow. Formally,
 
 ```math
-#\text{reachable sequences} = 3^{\,n-1}, \qquad n = 4:\ \ 3^3 = 27
+\#\ \text{reachable sequences} = 3^{\,n-1}, \qquad n = 4:\ \ 3^3 = 27
 ```
 
 where each new row offers exactly 3 choices ($`-1`$, $`0`$, $`+1`$ relative to the previous), so $`n`$ rows give $`3^{n-1}`$ worlds — the worked 27 is three factors of 3 multiplied out. *What this buys you:* "effective sample size" as an actual counting exercise — how many sequences could the rule have produced? *What it costs you:* exact counting needs a stated rule; for messy real series the count is an intuition, not a number.
