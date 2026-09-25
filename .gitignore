@@ -83,3 +83,7 @@ venv/
 .DS_Store
 .vscode/
 .idea/
+
+# Generated scientific illustrations that are part of the public documentation
+!docs/figures/
+!docs/figures/*.png
