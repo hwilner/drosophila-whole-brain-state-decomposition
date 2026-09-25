@@ -4,6 +4,10 @@
 >
 > *Drosophila melanogaster*, commonly called the fruit fly, is an organism used in research on how nervous systems and behaviour can be measured.[3] This page first gives **general background** for readers who are new to the subject. The repository’s own result is much narrower: it asks whether selected measurements of behaviour can help predict selected summaries of brain activity on recorded observations that were not used to fit a model. It reports a limited, source-specific observational association in one completed route and a non-supportive result in a separate route. It does **not** establish what causes behaviour or brain activity, or make a conclusion about all flies, all brains, or other species.
 
+![Concept figure: whole-brain activity is decomposed into a few latent state components, and behavior measurements are tested for predicting those states on held-out recordings](figures/01-concept-schematic.png)
+
+*Figure 1: Whole-brain activity is decomposed into a few latent state components, and behavior measurements are tested for predicting those states on held-out recordings. (Editable Mermaid source: [figures/concept_figure.md](figures/concept_figure.md).)*
+
 ## A concept ladder: from a fly to a carefully limited question
 
 ### 1. A brain is made of cells that send signals

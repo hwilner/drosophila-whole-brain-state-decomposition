@@ -129,6 +129,9 @@ def _path_reason(relative_path: Path) -> str | None:
         A reason string when the path is excluded, otherwise ``None``.
     """
     normalized = relative_path.as_posix().lower()
+    if normalized.startswith("docs/figures/"):
+        # Owner-approved exemption: generated illustrations in docs/figures/.
+        return None
     if any(part in normalized for part in _BLOCKED_PATH_PARTS):
         return "path is within an excluded local-material area"
     if normalized.endswith(_BLOCKED_SUFFIXES):
