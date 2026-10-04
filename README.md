@@ -35,7 +35,7 @@ python tools/release_boundary_scan.py
 
 ## Contributing
 
-Contributions are welcome for data-free software quality, synthetic tests, documentation, accessibility, and release controls. Please read [Contributing](CONTRIBUTING.md) and the [research status](docs/STATUS_AND_PLAN.md) before opening a change.
+Contributions are welcome for data-free software quality, synthetic tests, documentation, accessibility, and release controls. Please read the [contributing guide](CONTRIBUTING.md) and the [research status](docs/STATUS_AND_PLAN.md) before opening a change.
 
 ## Documentation
 

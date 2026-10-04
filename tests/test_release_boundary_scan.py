@@ -59,6 +59,22 @@ class ReleaseBoundaryScanTests(unittest.TestCase):
             self.assertIn("tracked text contains DOI-like identifier", reasons)
             self.assertIn("tracked text contains outcome-style claim", reasons)
 
+    def test_reports_tracked_symbolic_link_requires_review(self) -> None:
+        """A tracked symbolic link is reported for owner review."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            (root / "README.md").write_text("Synthetic fixture.\n", encoding="utf-8")
+            (root / "LINK.md").symlink_to("README.md")
+            with patch(
+                "tools.release_boundary_scan._tracked_files",
+                return_value=[Path("LINK.md")],
+            ):
+                violations = scan_tracked_tree(root)
+            self.assertEqual(
+                [violation.reason for violation in violations],
+                ["tracked symbolic link requires review"],
+            )
+
     def test_raises_when_tracked_list_is_unavailable(self) -> None:
         """A Git listing failure is surfaced rather than scanning untracked files."""
         completed = subprocess.CompletedProcess(["git"], 1, stderr=b"not a repository")
