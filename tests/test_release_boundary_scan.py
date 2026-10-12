@@ -59,6 +59,24 @@ class ReleaseBoundaryScanTests(unittest.TestCase):
             self.assertIn("tracked text contains DOI-like identifier", reasons)
             self.assertIn("tracked text contains outcome-style claim", reasons)
 
+    def test_introduction_file_is_exempt_from_text_rules(self) -> None:
+        """The docs/INTRODUCTION.md exemption leaves that file unreported."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            introduction = root / "docs" / "INTRODUCTION.md"
+            introduction.parent.mkdir(parents=True)
+            # The fixture text deliberately matches a text rule; concatenation
+            # keeps the literal pattern out of this test file's tracked text.
+            introduction.write_text(
+                "Project address: " + "http" + "s://example.invalid\n",
+                encoding="utf-8",
+            )
+            with patch(
+                "tools.release_boundary_scan._tracked_files",
+                return_value=[Path("docs/INTRODUCTION.md")],
+            ):
+                self.assertEqual(scan_tracked_tree(root), [])
+
     def test_raises_when_tracked_list_is_unavailable(self) -> None:
         """A Git listing failure is surfaced rather than scanning untracked files."""
         completed = subprocess.CompletedProcess(["git"], 1, stderr=b"not a repository")
