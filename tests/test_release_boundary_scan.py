@@ -77,6 +77,23 @@ class ReleaseBoundaryScanTests(unittest.TestCase):
             ):
                 self.assertEqual(scan_tracked_tree(root), [])
 
+    def test_tracked_symbolic_link_requires_review(self) -> None:
+        """A tracked symbolic link is flagged without reading its target."""
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            link = root / "linked_notes.md"
+            # The synthetic link dangles: its target does not exist, so the
+            # reported violation cannot depend on reading target content.
+            link.symlink_to("absent_target.md")
+            with patch(
+                "tools.release_boundary_scan._tracked_files",
+                return_value=[Path("linked_notes.md")],
+            ):
+                violations = scan_tracked_tree(root)
+            self.assertEqual(len(violations), 1)
+            self.assertEqual(violations[0].path, Path("linked_notes.md"))
+            self.assertEqual(violations[0].reason, "tracked symbolic link requires review")
+
     def test_raises_when_tracked_list_is_unavailable(self) -> None:
         """A Git listing failure is surfaced rather than scanning untracked files."""
         completed = subprocess.CompletedProcess(["git"], 1, stderr=b"not a repository")
