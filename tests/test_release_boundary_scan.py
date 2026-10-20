@@ -94,6 +94,27 @@ class ReleaseBoundaryScanTests(unittest.TestCase):
             self.assertEqual(violations[0].path, Path("linked_notes.md"))
             self.assertEqual(violations[0].reason, "tracked symbolic link requires review")
 
+    def test_unsafe_tracked_relative_path_requires_review(self) -> None:
+        """A tracked path escaping the working tree is flagged without reading it.
+
+        The relative-path safety branch of scan_tracked_tree must reject
+        parent-directory paths based on the tracked-file list alone, so the
+        test patches that list and never creates or reads an outside file.
+        """
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            root = Path(temporary_directory)
+            # Only the escaping path is reported as "tracked"; nothing exists
+            # at or outside the fixture root, so the violation can come solely
+            # from the relative-path safety branch, not from file inspection.
+            with patch(
+                "tools.release_boundary_scan._tracked_files",
+                return_value=[Path("../outside.md")],
+            ):
+                violations = scan_tracked_tree(root)
+            self.assertEqual(len(violations), 1)
+            self.assertEqual(violations[0].path, Path("../outside.md"))
+            self.assertEqual(violations[0].reason, "tracked path is not safely relative")
+
     def test_raises_when_tracked_list_is_unavailable(self) -> None:
         """A Git listing failure is surfaced rather than scanning untracked files."""
         completed = subprocess.CompletedProcess(["git"], 1, stderr=b"not a repository")
