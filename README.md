@@ -29,6 +29,8 @@ python -m unittest discover -s tests -v
 python tools/release_boundary_scan.py
 ```
 
+A nonzero exit from the release-boundary scanner means that one or more tracked paths or tracked text passages require review before release. The scanner is a safeguard that assists manual owner review; it does not replace it.
+
 ## Keywords
 
 *Drosophila*, neural–behavioural encoding, observational analysis, held-out prediction, computational neuroscience, reproducible research safeguards.
