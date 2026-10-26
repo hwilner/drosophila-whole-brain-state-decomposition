@@ -12,7 +12,7 @@ No cross-route synthesis or pooling was run. No further data-dependent work was 
 
 ## Interpretation
 
-The supportive finding is narrow. Within the stated route and eligible animals, motion-related signals were associated with neural components in a held-out assessment. A held-out assessment asks whether a pattern fitted on one set of observations also appears in a separate set. This makes the result more useful as a descriptive, predictive observation, but it does not explain why the signals are related.
+The supportive finding is narrow. Within the stated route and eligible animals, motion-related signals were associated with neural components in a held-out assessment. A held-out assessment evaluates whether a pattern fitted on one set of observations also appears in a separate set of observations that played no part in the fitting. When the pattern does appear in the separate observations, the result is best read as descriptive, predictive evidence that the association is not limited to the observations used for fitting. This does not establish why the signals are related, and it does not establish causality: agreement on held-out observations cannot by itself distinguish among possible explanations for the association.
 
 The mixed annotation-related findings and the lack of uniform improvement from combined predictors mean that this route does not offer one consistently stronger combined account. The separate route should be read on its own terms: its overall non-supportive result does not cancel or confirm the first route, because the routes were designed separately and were not pooled.
 
